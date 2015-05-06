@@ -89,13 +89,13 @@ Hints:
   * [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ```javascript
-// this should an ajax request to the url and call the success callback if successful and fail callback if unsuccessful.
+// this should an ajax request to the url and call the then callback if successful and catch callback if unsuccessful.
 AjaxWrapper.request({
  url: 'someurl',
  type: 'GET'
 }).then(function(data, textStatus, xhr) {
   // Handle data returned from the Promise
-}).fail(function(errorMessage, textStatus, xhr) {
+}).catch(function(errorMessage, textStatus, xhr) {
   // Handle data returned from the Promise
 });
 ```
