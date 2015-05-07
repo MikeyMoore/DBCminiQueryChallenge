@@ -93,9 +93,9 @@ Hints:
 AjaxWrapper.request({
  url: 'someurl',
  type: 'GET'
-}).then(function(data, textStatus, xhr) {
+}).then(function(response) {
   // Handle data returned from the Promise
-}).catch(function(errorMessage, textStatus, xhr) {
+}).catch(function(error) {
   // Handle data returned from the Promise
 });
 ```
