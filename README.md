@@ -84,7 +84,7 @@ EventDispatcher.trigger('.klass', 'shadi');
 ###Release 3: Ajax
 Create a module called AjaxWrapper that allows us to do the following:
 
-Hints: 
+Hints:
   * [using XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
   * [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
@@ -139,7 +139,24 @@ miniQuery.AjaxWrapper.request({...});
 - Continue with the rest of the libraries and make sure you're not repeating yourself. Meaning, can the libraries use each other?
 - Take small steps, don't attempt to solve this all at once.
 
-###Release 5: use $
+###Release 5: DOM ready
+Remember that jQuery.ready takes a callback function as an argument. This callback is executed when the DOM is ready.
+
+Let's write the miniQuery equivalent.
+
+There are two situations the DOM can be in when you call miniQuery.ready:
+- DOM is ready: execute the callback immediately
+- DOM is not ready: pass your callback to an event listener which listens to an event that fires when the DOM is ready. This event exists; you don't need to rewrite it.
+
+Hints:
+  * [DOMContentLoaded event](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+  * [document.readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState)
+
+```javascript
+miniQuery.ready( function() { console.log("The DOM is ready"); })
+```
+
+###Release 6: use $
 miniQuery is too long to write, can we use $ as well. Nothing should change, we'll just give the user the option to use miniQuery() or $().
 
 ###Dive Deeper
