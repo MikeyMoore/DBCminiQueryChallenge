@@ -148,6 +148,8 @@ There are two situations the DOM can be in when you call miniQuery.ready:
 - DOM is ready: execute the callback immediately
 - DOM is not ready: pass your callback to an event listener which listens to an event that fires when the DOM is ready. This event exists; you don't need to rewrite it.
 
+You can test by checking document.readyState within your ready function and seeing if it always equals "complete"
+
 Hints:
   * [DOMContentLoaded event](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
   * [document.readyState](https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState)
