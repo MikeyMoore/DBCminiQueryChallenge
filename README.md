@@ -35,6 +35,16 @@ jQuery or any other external library, this would defeat the purpose of this
 challenge. You are, however, encouraged to read the jQuery code, get inspired.
 You will be using the browser console to test your code.
 
+**IMPORTANT**: You should **not** double-click on the `index.html` file to open
+it. You will want to have an actual web server "host" the file for you. The
+Python language comes with a built-in simple web server which will serve your
+`index.html` page. Open a terminal window and from within the directory with
+`index.html` in it type: `python -m SimpleHTTPServer`.
+
+This will start a, uh, simple http server on port 8000. If ever you need to
+server something quickly, it's worth knowing about this particular bit of
+Python awesomeness.
+
 Read [Module Pattern chapter of Javascript Design Patterns][mod]
 
 
