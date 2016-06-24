@@ -84,10 +84,10 @@ DOM.show('.klass') // shows the div
 ```
 - addClass and removeClass elements:
 ```javascript
-// div.klass should look like this: <div class="klass shadi">klass</div>
-DOM.addClass('.klass', 'shadi')
+// div.klass should look like this: <div class="klass custom">klass</div>
+DOM.addClass('.klass', 'custom')
 // div.klass should look like this: <div class="klass">klass</div>
-DOM.removeClass('.klass', 'shadi')
+DOM.removeClass('.klass', 'custom')
 ```
 
 ###Release 2:  Event dispatch
@@ -100,9 +100,9 @@ Hints:
 Implement the following functionalities:
 
 ```javascript
-EventDispatcher.on('.klass', 'shadi', function() { console.log("awesome") });
-EventDispatcher.trigger('.klass', 'shadi');
-// this should print "awesome" in the console.
+EventDispatcher.on('.klass', 'customEvent', function() { console.log("fired my own custom event!") });
+EventDispatcher.trigger('.klass', 'customEvent');
+// this should print "fired my own custom event!" in the console.
 ```
 
 ###Release 3: Ajax
@@ -139,8 +139,8 @@ miniQuery('.klass').show();
 miniQuery('.klass').addClass();
 miniQuery('.klass').removeClass();
 // Event Dispatch
-miniQuery('.klass').on('shadi', function() { console.log("awesome") });
-miniQuery('.klass').trigger('shadi');
+miniQuery('.klass').on('customEvent', function() { console.log("fired my own custom event!") });
+miniQuery('.klass').trigger('customEvent');
 // ajax
 miniQuery.ajax({
  url: 'someurl',
