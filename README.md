@@ -1,23 +1,45 @@
 # miniQuery challenge
 
 ##Summary
-[jQuery](http://jquery.com/) is a very popular Javascript toolbelt. It is a collection of tools, each tool allows you to do a very specific job, for example:
 
-  - Select elements with css: $('#id'), $('.class'), $('element')
-  - Manipulate the DOM: .show(), .hide(), .addClass(), .removeClass(), etc.
-  - Dispatch and listen for events: .trigger(...), .on(...)
-  - Send http requests: $.ajax
+[jQuery](http://jquery.com/) is a very popular Javascript toolbelt. It is a
+collection of tools, each tool allows you to do a very specific job, for
+example:
 
-It's important to realize that jQuery is not just one thing, it's a collection of things grouped under one framework. In fact, some parts of it could be used as standalone tools. For example, jQuery uses [Sizzle](https://github.com/jquery/sizzle) under the hood as its selector engine.
+- Select elements with css: `$('#id')`, `$('.class')`, `$('element')`
+- Manipulate the DOM: `.show()`, `.hide()`, `.addClass()`, `.removeClass()`, etc.
+- Dispatch and listen for events: `.trigger(...)`, `.on(...)`
+- Send http requests: `$.ajax`
 
-In this challenge we will decompose jQuery and reimplement some of its functionality. We will start by implementing each tool on its own. Eventually, we will group everything together under one toolbelt: miniQuery. The objective is to remove the "magic" from jQuery and realize that it's nothing you couldn't write. It's also important to separate the different tools that jQuery provides you by function and to be able to identify them as separate components collected under one umbrella.
+It's important to realize that jQuery is not just one thing, it's a collection
+of things grouped under one framework. In fact, some parts of it could be used
+as standalone tools. For example, jQuery uses
+[Sizzle](https://github.com/jquery/sizzle) under the hood as its selector
+engine.
+
+In this challenge we will decompose jQuery and reimplement some of its
+functionality. We will start by implementing each tool on its own. Eventually,
+we will group everything together under one toolbelt: miniQuery. The objective
+is to remove the "magic" from jQuery and realize that it's nothing you couldn't
+write. It's also important to separate the different tools that jQuery provides
+you by function and to be able to identify them as separate components
+collected under one umbrella.
 
 ### Setting Up the Application
-Under the source folder, you'll find an index.html file and a lib folder. The index.html is very simple, it primarily links to our miniQuery library and allows us to test it easily. The lib folder contains miniQuery.js, this is where you'll be spending most of your time. You are NOT allowed to include the jQuery or any other external library, this would defeat the purpose of this challenge. You are, however, encouraged to read the jQuery code, get inspired. You will be using the browser console to test your code.
 
-Read [Module Pattern chapter of Javascript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)
+Under the source folder, you'll find an index.html file and a lib folder. The
+index.html is very simple, it primarily links to our miniQuery library and
+allows us to test it easily. The lib folder contains miniQuery.js, this is
+where you'll be spending most of your time. You are NOT allowed to include the
+jQuery or any other external library, this would defeat the purpose of this
+challenge. You are, however, encouraged to read the jQuery code, get inspired.
+You will be using the browser console to test your code.
+
+Read [Module Pattern chapter of Javascript Design Patterns][mod]
+
 
 ##Releases
+
 ###Release 0: A selector library
 Create a module called SweetSelector that allows us to do the following (hint: you need to do it in [pure javascript](http://www.w3schools.com/js/js_htmldom_elements.asp) ):
 
@@ -157,3 +179,4 @@ miniQuery is too long to write, can we use $ as well. Nothing should change, we'
 - [Bonzo](https://github.com/ded/bonzo)
 - [reqwest](https://github.com/ded/reqwest)
 - [Bean](https://github.com/fat/bean)
+[mod]:http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
