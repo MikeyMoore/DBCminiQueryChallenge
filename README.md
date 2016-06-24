@@ -1,31 +1,55 @@
 # miniQuery challenge
 
-##Learning Competencies
-- Create modular code in Javascript.
-- Implement css selector library in Javascript.
-- Implement DOM manipulation library in Javascript.
-- Implement event dispatch library in Javascript.
-- Implement http requests library in Javascript.
-- Understand and reimplement jQuery as a toolbelt that collects various libraries.
-
 ##Summary
-[jQuery](http://jquery.com/) is a very popular Javascript toolbelt. It is a collection of tools, each tool allows you to do a very specific job, for example:
 
-  - Select elements with css: $('#id'), $('.class'), $('element')
-  - Manipulate the DOM: .show(), .hide(), .addClass(), .removeClass(), etc.
-  - Dispatch and listen for events: .trigger(...), .on(...)
-  - Send http requests: $.ajax
+[jQuery](http://jquery.com/) is a very popular Javascript toolbelt. It is a
+collection of tools, each tool allows you to do a very specific job, for
+example:
 
-It's important to realize that jQuery is not just one thing, it's a collection of things grouped under one framework. In fact, some parts of it could be used as standalone tools. For example, jQuery uses [Sizzle](https://github.com/jquery/sizzle) under the hood as its selector engine.
+- Select elements with css: `$('#id')`, `$('.class')`, `$('element')`
+- Manipulate the DOM: `.show()`, `.hide()`, `.addClass()`, `.removeClass()`, etc.
+- Dispatch and listen for events: `.trigger(...)`, `.on(...)`
+- Send http requests: `$.ajax`
 
-In this challenge we will decompose jQuery and reimplement some of its functionality. We will start by implementing each tool on its own. Eventually, we will group everything together under one toolbelt: miniQuery. The objective is to remove the "magic" from jQuery and realize that it's nothing you couldn't write. It's also important to separate the different tools that jQuery provides you by function and to be able to identify them as separate components collected under one umbrella.
+It's important to realize that jQuery is not just one thing, it's a collection
+of things grouped under one framework. In fact, some parts of it could be used
+as standalone tools. For example, jQuery uses
+[Sizzle](https://github.com/jquery/sizzle) under the hood as its selector
+engine.
+
+In this challenge we will decompose jQuery and reimplement some of its
+functionality. We will start by implementing each tool on its own. Eventually,
+we will group everything together under one toolbelt: miniQuery. The objective
+is to remove the "magic" from jQuery and realize that it's nothing you couldn't
+write. It's also important to separate the different tools that jQuery provides
+you by function and to be able to identify them as separate components
+collected under one umbrella.
 
 ### Setting Up the Application
-Under the source folder, you'll find an index.html file and a lib folder. The index.html is very simple, it primarily links to our miniQuery library and allows us to test it easily. The lib folder contains miniQuery.js, this is where you'll be spending most of your time. You are NOT allowed to include the jQuery or any other external library, this would defeat the purpose of this challenge. You are, however, encouraged to read the jQuery code, get inspired. You will be using the browser console to test your code.
 
-Read [Module Pattern chapter of Javascript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)
+Under the source folder, you'll find an index.html file and a lib folder. The
+index.html is very simple, it primarily links to our miniQuery library and
+allows us to test it easily. The lib folder contains miniQuery.js, this is
+where you'll be spending most of your time. You are NOT allowed to include the
+jQuery or any other external library, this would defeat the purpose of this
+challenge. You are, however, encouraged to read the jQuery code, get inspired.
+You will be using the browser console to test your code.
+
+**IMPORTANT**: You should **not** double-click on the `index.html` file to open
+it. You will want to have an actual web server "host" the file for you. The
+Python language comes with a built-in simple web server which will serve your
+`index.html` page. Open a terminal window and from within the directory with
+`index.html` in it type: `python -m SimpleHTTPServer`.
+
+This will start a, uh, simple http server on port 8000. If ever you need to
+server something quickly, it's worth knowing about this particular bit of
+Python awesomeness.
+
+Read [Module Pattern chapter of Javascript Design Patterns][mod]
+
 
 ##Releases
+
 ###Release 0: A selector library
 Create a module called SweetSelector that allows us to do the following (hint: you need to do it in [pure javascript](http://www.w3schools.com/js/js_htmldom_elements.asp) ):
 
@@ -60,10 +84,10 @@ DOM.show('.klass') // shows the div
 ```
 - addClass and removeClass elements:
 ```javascript
-// div.klass should look like this: <div class="klass shadi">klass</div>
-DOM.addClass('.klass', 'shadi')
+// div.klass should look like this: <div class="klass custom">klass</div>
+DOM.addClass('.klass', 'custom')
 // div.klass should look like this: <div class="klass">klass</div>
-DOM.removeClass('.klass', 'shadi')
+DOM.removeClass('.klass', 'custom')
 ```
 
 ###Release 2:  Event dispatch
@@ -76,9 +100,9 @@ Hints:
 Implement the following functionalities:
 
 ```javascript
-EventDispatcher.on('.klass', 'shadi', function() { console.log("awesome") });
-EventDispatcher.trigger('.klass', 'shadi');
-// this should print "awesome" in the console.
+EventDispatcher.on('.klass', 'customEvent', function() { console.log("fired my own custom event!") });
+EventDispatcher.trigger('.klass', 'customEvent');
+// this should print "fired my own custom event!" in the console.
 ```
 
 ###Release 3: Ajax
@@ -115,8 +139,8 @@ miniQuery('.klass').show();
 miniQuery('.klass').addClass();
 miniQuery('.klass').removeClass();
 // Event Dispatch
-miniQuery('.klass').on('shadi', function() { console.log("awesome") });
-miniQuery('.klass').trigger('shadi');
+miniQuery('.klass').on('customEvent', function() { console.log("fired my own custom event!") });
+miniQuery('.klass').trigger('customEvent');
 // ajax
 miniQuery.ajax({
  url: 'someurl',
@@ -165,3 +189,4 @@ miniQuery is too long to write, can we use $ as well. Nothing should change, we'
 - [Bonzo](https://github.com/ded/bonzo)
 - [reqwest](https://github.com/ded/reqwest)
 - [Bean](https://github.com/fat/bean)
+[mod]:http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
