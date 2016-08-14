@@ -3,11 +3,18 @@
  */
 
 var SweetSelector = {
-	select: function(id){
-		if(id[0] == '#'){
-			id = id.substr(1)
+	select: function(item){
+		if(item[0] == '#'){
+			idItem = item.substr(1)
+			foundItem = document.getElementById(idItem)
+			return foundItem
+		} else if(item[0] == '.'){
+			classItem = item.substr(1)
+			foundItem = document.getElementsByClassName(classItem)
+			return foundItem
+		} else {
+			foundItem = document.getElementsByTagName(item)
+			return foundItem
 		}
-		id = document.getElementById(id)
-		return id
 	}
 }
