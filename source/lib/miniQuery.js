@@ -17,4 +17,20 @@ var SweetSelector = {
 			return foundItem
 		}
 	}
+};
+
+var DOM = {
+	hide: function(item){
+		if(item[0] == '#'){
+			SweetSelector.select(item).style.display='none'
+		} else {
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				selectedArray[i].style.display="none"
+			};
+		};
+	},
+	show: function(){
+
+	}
 }
