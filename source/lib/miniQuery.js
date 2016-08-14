@@ -39,5 +39,20 @@ var DOM = {
 				selectedArray[i].style.visibility='visible'
 			};
 		};
+	},
+	addClass: function(item, newClass){
+		if(item[0] == '.'){
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				selectedArray[i].className=newClass
+			};
+		}
+	},
+	removeClass: function(){
+		
 	}
 }
+
+
+
+
