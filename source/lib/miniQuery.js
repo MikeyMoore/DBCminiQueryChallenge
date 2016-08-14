@@ -22,15 +22,44 @@ var SweetSelector = {
 var DOM = {
 	hide: function(item){
 		if(item[0] == '#'){
-			SweetSelector.select(item).style.display='none'
+			SweetSelector.select(item).style.visibility='hidden'
 		} else {
 			var selectedArray = SweetSelector.select(item);
 			for (i=0; i<selectedArray.length; i++){
-				selectedArray[i].style.display="none"
+				selectedArray[i].style.visibility='hidden'
 			};
 		};
 	},
-	show: function(){
-
+	show: function(item){
+		if(item[0] == '#'){
+			SweetSelector.select(item).style.visibility='visible'
+		} else {
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				selectedArray[i].style.visibility='visible'
+			};
+		};
+	},
+	addClass: function(item, newClass){
+		if(item[0] == '.'){
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				selectedArray[i].className= item.substr(1) + ' ' + newClass
+			};
+		}
+	},
+	removeClass: function(item, staleClass){
+		if(item[0] == '.'){
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				if(selectedArray[i].classList.contains(staleClass)) {
+					selectedArray[i].classList.remove(staleClass)
+				}
+			};
+		}
 	}
-}
+};
+
+
+
+
