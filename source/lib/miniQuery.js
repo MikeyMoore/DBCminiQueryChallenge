@@ -44,14 +44,21 @@ var DOM = {
 		if(item[0] == '.'){
 			var selectedArray = SweetSelector.select(item);
 			for (i=0; i<selectedArray.length; i++){
-				selectedArray[i].className=newClass
+				selectedArray[i].className= item.substr(1) + ' ' + newClass
 			};
 		}
 	},
-	removeClass: function(){
-		
+	removeClass: function(item, staleClass){
+		if(item[0] == '.'){
+			var selectedArray = SweetSelector.select(item);
+			for (i=0; i<selectedArray.length; i++){
+				if(selectedArray[i].classList.contains(staleClass)) {
+					selectedArray[i].classList.remove(staleClass)
+				}
+			};
+		}
 	}
-}
+};
 
 
 
