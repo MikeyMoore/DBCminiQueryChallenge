@@ -70,8 +70,41 @@ var EventDispatcher = {
 		} else {
 			elements.addEventListener(customEvent, customFunction, false);
 		}
+	},
+	trigger: function(target, customEvent){
+		var elements = SweetSelector.select(target);
+		var event = new Event(customEvent);
+		if ( elements instanceof HTMLCollection ) {
+			for (var i=0; i<elements.length; i++){
+				elements[i].dispatchEvent(event)
+			}
+		} else {
+			elements.dispatchEvent(event);
+		}
 	}
 };
+
+var AjaxWrapper = {
+	request: function(hash){
+		var promise = new Promise( function(resolve, reject) {
+			// var oReq = new 
+			var newRequest = new XMLHttpRequest();
+			newRequest.open(hash.type, hash.url);
+			newRequest.send();
+			newRequest.onload = function() {
+				if (this.status >= 200 && this.status < 300) {
+					resolve(this.response)
+				} else {
+					reject(this.statusText)
+				}
+			};
+			newRequest.onerror = function() {
+				reject(this.statusText);
+			}
+		});
+		return promise
+	}
+}
 
 
 
