@@ -70,6 +70,17 @@ var EventDispatcher = {
 		} else {
 			elements.addEventListener(customEvent, customFunction, false);
 		}
+	},
+	trigger: function(target, customEvent){
+		var elements = SweetSelector.select(target);
+		var event = new Event(customEvent);
+		if ( elements instanceof HTMLCollection ) {
+			for (var i=0; i<elements.length; i++){
+				elements[i].dispatchEvent(event)
+			}
+		} else {
+			elements.dispatchEvent(event);
+		}
 	}
 };
 
