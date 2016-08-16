@@ -60,6 +60,19 @@ var DOM = {
 	}
 };
 
+var EventDispatcher = {
+	on: function(target, customEvent, customFunction){
+		var elements = SweetSelector.select(target);
+		if ( elements instanceof HTMLCollection ) {
+			for (var i=0; i<elements.length; i++){
+				elements[i].addEventListener(customEvent, customFunction, false)
+			}
+		} else {
+			elements.addEventListener(customEvent, customFunction, false);
+		}
+	}
+};
+
 
 
 
