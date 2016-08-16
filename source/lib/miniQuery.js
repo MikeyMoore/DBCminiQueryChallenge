@@ -84,6 +84,28 @@ var EventDispatcher = {
 	}
 };
 
+var AjaxWrapper = {
+	request: function(hash){
+		var promise = new Promise( function(resolve, reject) {
+			// var oReq = new 
+			var newRequest = new XMLHttpRequest();
+			newRequest.open(hash.type, hash.url);
+			newRequest.send();
+			newRequest.onload = function() {
+				if (this.status >= 200 && this.status < 300) {
+					resolve(this.response)
+				} else {
+					reject(this.statusText)
+				}
+			};
+			newRequest.onerror = function() {
+				reject(this.statusText);
+			}
+		});
+		return promise
+	}
+}
+
 
 
 
